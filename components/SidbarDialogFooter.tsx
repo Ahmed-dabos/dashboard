@@ -37,7 +37,7 @@ export default function SidebarDialogFooter() {
                   <DialogTitle>Sign out</DialogTitle>
                   <DialogDescription>Are you sure?</DialogDescription>
                 </DialogHeader>
-                <DialogFooter>
+                <DialogFooter className="flex flex-row">
                   <DialogClose asChild>
                   <Button variant="secondary" className="bg-gray-300 px-4 py-2 rounded-md mr-2 cursor-pointer">Cancel</Button>
                   </DialogClose>

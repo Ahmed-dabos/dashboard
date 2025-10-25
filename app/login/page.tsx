@@ -86,7 +86,7 @@ export default function LoginPage() {
                     </form>
                 </CardContent>
                 <CardFooter className="flex justify-center flex-col gap-4">
-                        <div> Are you new?<Link href="/login" className="mr-4 text-sm underline">Sign up</Link></div>
+                        <div> Are you new?<Link href="/signup" className="mr-4 text-sm underline">Sign up</Link></div>
                         <Button size="lg" type="submit" form="signup" disabled={!form.formState.isValid || form.formState.isSubmitting}>
                             {form.formState.isSubmitting ? <Loader2 className="size-4 animate-spin"/>:"Login"}
                         </Button>
