@@ -17,7 +17,7 @@ export default function Home() {
         </Card>
         </ScrollArea>
       <div><CalendarComponent /></div>
-      <div className="col-span-2 row-span-1"><ChartAreaGradient /></div>
+      <div className="col-span-1 md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-1"><ChartAreaGradient /></div>
     </main>
   )
 }
