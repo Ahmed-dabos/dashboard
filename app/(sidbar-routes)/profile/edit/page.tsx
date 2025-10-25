@@ -10,7 +10,7 @@ export default function EditUser() {
     const router = useRouter()
     const editUserWithId = editUser.bind(null, user?.id)
     return (
-        <form action={editUserWithId} className="p-5 flex gap-1.5">
+        <form action={editUserWithId} className="p-5 flex flex-col gap-1.5 md:flex-row lg:flex-row">
             <Label htmlFor="username">username:</Label>
             <Input id="username" type="text" name="username" defaultValue={user?.username}/>
             <Label htmlFor="email">email:</Label>
