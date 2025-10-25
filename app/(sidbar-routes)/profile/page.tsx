@@ -10,7 +10,7 @@ export default function ProfilePage() {
     const { user } = useUserContext()
     const [show, setShow] = useState(false)
     return (
-        <main className="p-[50px]">
+        <main className="p-[38px]">
             <Card className="h-[80vh] flex">
                 <CardHeader>
                     <CardTitle>user details:  </CardTitle>

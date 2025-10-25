@@ -5,8 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import CalendarComponent from "@/components/Calendar"
 export default function Home() {
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-8 gap-5 w-full grid-rows-2 h-screen">
-      <div className="">
+    <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-8 gap-5 w-fullmd:grid-row-2 lg:grid-rows-2 h-screen">
         <ScrollArea>
         <Card className="h-80 overflow-auto">
           <CardHeader>
@@ -17,8 +16,7 @@ export default function Home() {
           </CardContent>
         </Card>
         </ScrollArea>
-      </div>
-      <div className=""><CalendarComponent /></div>
+      <div><CalendarComponent /></div>
       <div className="col-span-2 row-span-1"><ChartAreaGradient /></div>
     </main>
   )
