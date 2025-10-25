@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { Toaster } from "@/components/ui/sonner"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import AppSidebar  from "@/components/app-sidebar"
 import { UserProvider } from "@/components/context/UserContext";
 
 export const metadata: Metadata = {
@@ -14,15 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <main>
+      <SidebarProvider>
+      <AppSidebar />
+        <main className="w-full">
+          <SidebarTrigger />
           <UserProvider>
             {children}
-            <Toaster position="top-right"/>
           </UserProvider>
         </main>
-      </body>
-    </html>
+      </SidebarProvider>
   );
 }
