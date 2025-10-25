@@ -17,10 +17,10 @@ export default function EditUser() {
             <Input id="username" type="text" name="username" defaultValue={user?.username}/>
             <Label htmlFor="email">email:</Label>
             <Input id="email" type="email" name="email" defaultValue={user?.email}/>
-            <Label htmlFor="password">password</Label>
+            <Label htmlFor="password">password:</Label>
             <div className="flex">
             <Input id="password" type={open? "text" : "password"} name="password" defaultValue={user?.password}/>
-            <span onClick={() => setOpen(prev => !prev)} className="underline text-sm cursor-pointer">show password</span>
+            <span onClick={() => setOpen(prev => !prev)} className="underline text-sm cursor-pointer">{open ? "hide" : "show"} password</span>
             </div>
             <Input id="password" type="password" name="userId" defaultValue={user?.userId} hidden/>
             <Button type="button" onClick={() => router.push("/profile")}>cancel</Button>

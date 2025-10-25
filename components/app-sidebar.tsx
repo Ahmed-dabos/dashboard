@@ -9,7 +9,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-import {  Home, User, } from "lucide-react"
+import {  Home, User, Users, } from "lucide-react"
 import Link from "next/link"
 import SidebarDialogFooter from "./SidbarDialogFooter"
 export default function AppSidebar() {
@@ -28,6 +28,11 @@ export default function AppSidebar() {
         <SidebarMenuItem>
           <SidebarMenuButton asChild>
             <Link href="/profile"><User /> <span>profile</span></Link>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+        <SidebarMenuItem>
+          <SidebarMenuButton asChild>
+            <Link href="/customers"><Users /> <span>customers</span></Link>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>

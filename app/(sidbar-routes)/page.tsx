@@ -1,13 +1,25 @@
 import ChartAreaGradient from "@/components/DashboardChart"
-
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import Todos from "@/components/todos"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import CalendarComponent from "@/components/Calendar"
 export default function Home() {
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8 gap-5 w-full">
-      <div className="col-span-3"><ChartAreaGradient /></div>
-      <div className="col-span-2">1</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
+    <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-8 gap-5 w-full grid-rows-2 h-screen">
+      <div className="">
+        <ScrollArea>
+        <Card className="h-80 overflow-auto">
+          <CardHeader>
+            <CardTitle>user todos</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-col">
+              <Todos />
+          </CardContent>
+        </Card>
+        </ScrollArea>
+      </div>
+      <div className=""><CalendarComponent /></div>
+      <div className="col-span-2 row-span-1"><ChartAreaGradient /></div>
     </main>
   )
 }
