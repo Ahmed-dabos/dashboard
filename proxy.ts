@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 export function proxy(request: NextRequest) {
-    const protectedPaths = ["/","/profile","/profile/edit"]
+    const protectedPaths = ["/","/profile","/profile/edit","/customers"]
     if (protectedPaths.includes(request.nextUrl.pathname)) {
         const cookie = request.cookies.get("sessionToken") 
         if (!cookie) { 

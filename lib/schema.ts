@@ -16,3 +16,11 @@ export const loginSchema = userSchema.pick({
    password: true,
 });
 export type LoginSchema = z.infer<typeof loginSchema>;
+
+export type Customers = {
+   id: string 
+   name: string
+   email: string
+   payments: string
+   userId: string
+}

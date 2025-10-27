@@ -4,6 +4,7 @@ import { userSchema } from "@/lib/schema"
 import { loginSchema } from "@/lib/schema"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import { revalidatePath } from "next/cache"
 export async function signupAction(formData: FormData) {
     const userData = {
         username: formData.get("username") as string,
@@ -89,4 +90,56 @@ export async function editUser(id: string | undefined, formData:FormData) {
     const cookie = await cookies()
     cookie.delete("sessionToken")
     redirect("/login")
+}
+export async function getCustomers() {
+    const res = await fetch(`https://68ff53b1e02b16d1753d7321.mockapi.io/api/v1/customers?userId=${(await cookies()).get("sessionToken")?.value}`)
+    const data = await res.json()
+    return data
+}
+export async function handleDelete(id: string) { 
+        await fetch(`https://68ff53b1e02b16d1753d7321.mockapi.io/api/v1/customers/${id}`, {
+            method: 'DELETE',
+        })
+        revalidatePath('/customers')
+    }
+export async function addCustomer(formData: FormData) {
+    const newCustomer = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        payments: formData.get("payments"),
+        userId: formData.get("userId")
+    }
+    if(newCustomer.name){
+        try {
+        const res = await fetch("https://68ff53b1e02b16d1753d7321.mockapi.io/api/v1/customers", {
+            method: "Post",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newCustomer)
+        }
+        )
+        revalidatePath('/customers')
+    }catch (error) {
+        console.log(error)
+    }
+} 
+}
+export async function editCustomer(formData: FormData) {
+    const id = formData.get("id")
+    const editedCustomer = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        payments: formData.get("payments")
+    }
+    if(editedCustomer.name) {
+        try {
+            const res = await fetch(`https://68ff53b1e02b16d1753d7321.mockapi.io/api/v1/customers/${id}`, {
+                method: "PUT",
+                headers: {"Content-Type": "application/json"}, 
+                body: JSON.stringify(editedCustomer)
+            })
+            revalidatePath('/customers')
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
